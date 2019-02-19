@@ -1,8 +1,8 @@
-# EasyPermissions
+# simpleadapter
 
 [![](https://jitpack.io/v/Caij/simpleadapter.svg)](https://jitpack.io/#Caij/simpleadapter)
 
-Android M permission model.
+RevyclerView Simple Adapter
 
 ## Setup
 
