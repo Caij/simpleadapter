@@ -286,15 +286,15 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
             }
         }
 
-        void setOnItemClickListener(RecyclerViewOnItemClickListener mOnItemClickListener) {
+        public void setOnItemClickListener(RecyclerViewOnItemClickListener mOnItemClickListener) {
             this.mOnItemClickListener = mOnItemClickListener;
         }
 
-        void setRecyclerViewOnItemLongClickListener(RecyclerViewOnItemLongClickListener mRecyclerViewOnItemLongClickListener) {
+        public void setRecyclerViewOnItemLongClickListener(RecyclerViewOnItemLongClickListener mRecyclerViewOnItemLongClickListener) {
             this.mRecyclerViewOnItemLongClickListener = mRecyclerViewOnItemLongClickListener;
         }
 
-        void setOnItemPartViewClickListener(OnItemPartViewClickListener mOnItemPartViewClickListener) {
+        public void setOnItemPartViewClickListener(OnItemPartViewClickListener mOnItemPartViewClickListener) {
             this.mOnItemPartViewClickListener = mOnItemPartViewClickListener;
         }
 
