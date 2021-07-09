@@ -294,7 +294,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
                     return mRecyclerViewOnItemLongClickListener.onItemLongClick(mViewHolder, v, mViewHolder.getAdapterPosition());
                 } else {
                     if (onItemPartViewLongClickListener != null) {
-                        onItemPartViewLongClickListener.onPartLongClick(v, mViewHolder.getAdapterPosition());
+                        return onItemPartViewLongClickListener.onPartLongClick(v, mViewHolder.getAdapterPosition());
                     }
                 }
             }
