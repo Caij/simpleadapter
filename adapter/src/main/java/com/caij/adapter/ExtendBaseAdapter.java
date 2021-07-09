@@ -93,4 +93,7 @@ public abstract class ExtendBaseAdapter<E, VH extends BaseViewHolder> extends Ba
     }
 
 
+    public void setOnItemPartViewLongClickListener(OnItemPartViewLongClickListener onItemPartViewLongClickListener) {
+        this.onItemPartViewLongClickListener = onItemPartViewLongClickListener;
+    }
 }
