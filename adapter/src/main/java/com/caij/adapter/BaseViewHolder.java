@@ -258,10 +258,11 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
 
     public static class InOnClickListener implements View.OnClickListener, View.OnLongClickListener  {
 
-        private RecyclerView.ViewHolder mViewHolder;
-        private RecyclerViewOnItemClickListener mOnItemClickListener;
-        private RecyclerViewOnItemLongClickListener mRecyclerViewOnItemLongClickListener;
-        private OnItemPartViewClickListener mOnItemPartViewClickListener;
+        public RecyclerView.ViewHolder mViewHolder;
+        public RecyclerViewOnItemClickListener mOnItemClickListener;
+        public RecyclerViewOnItemLongClickListener mRecyclerViewOnItemLongClickListener;
+        public OnItemPartViewClickListener mOnItemPartViewClickListener;
+        public OnItemPartViewLongClickListener onItemPartViewLongClickListener;
 
         private boolean isCanNoAttachClick;
 
@@ -286,23 +287,15 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
             }
         }
 
-        public void setOnItemClickListener(RecyclerViewOnItemClickListener mOnItemClickListener) {
-            this.mOnItemClickListener = mOnItemClickListener;
-        }
-
-        public void setRecyclerViewOnItemLongClickListener(RecyclerViewOnItemLongClickListener mRecyclerViewOnItemLongClickListener) {
-            this.mRecyclerViewOnItemLongClickListener = mRecyclerViewOnItemLongClickListener;
-        }
-
-        public void setOnItemPartViewClickListener(OnItemPartViewClickListener mOnItemPartViewClickListener) {
-            this.mOnItemPartViewClickListener = mOnItemPartViewClickListener;
-        }
-
         @Override
         public boolean onLongClick(View v) {
             if (mViewHolder.getAdapterPosition() != RecyclerView.NO_POSITION || isCanNoAttachClick) {
                 if (v == mViewHolder.itemView) {
                     return mRecyclerViewOnItemLongClickListener.onItemLongClick(mViewHolder, v, mViewHolder.getAdapterPosition());
+                } else {
+                    if (onItemPartViewLongClickListener != null) {
+                        onItemPartViewLongClickListener.onPartLongClick(v, mViewHolder.getAdapterPosition());
+                    }
                 }
             }
             return false;

@@ -19,6 +19,7 @@ public abstract class ExtendBaseAdapter<E, VH extends BaseViewHolder> extends Ba
     protected OnItemPartViewClickListener mOnItemPartViewClickListener;
     private RecyclerViewOnItemClickListener mOnItemClickListener;
     private RecyclerViewOnItemLongClickListener mRecyclerViewOnItemLongClickListener;
+    private OnItemPartViewLongClickListener onItemPartViewLongClickListener;
 
     protected Object mUI;
     protected Context mContext;
@@ -51,9 +52,10 @@ public abstract class ExtendBaseAdapter<E, VH extends BaseViewHolder> extends Ba
 
     @Override
     public final void onBindViewHolder(@NonNull VH holder, int position) {
-        holder.mInOnClickListener.setRecyclerViewOnItemLongClickListener(mRecyclerViewOnItemLongClickListener);
-        holder.mInOnClickListener.setOnItemClickListener(mOnItemClickListener);
-        holder.mInOnClickListener.setOnItemPartViewClickListener(mOnItemPartViewClickListener);
+        holder.mInOnClickListener.mRecyclerViewOnItemLongClickListener = mRecyclerViewOnItemLongClickListener;
+        holder.mInOnClickListener.mOnItemClickListener = mOnItemClickListener;
+        holder.mInOnClickListener.mOnItemPartViewClickListener = mOnItemPartViewClickListener;
+        holder.mInOnClickListener.onItemPartViewLongClickListener = onItemPartViewLongClickListener;
         onBindViewHolderInner(holder, position);
     }
 
@@ -81,7 +83,6 @@ public abstract class ExtendBaseAdapter<E, VH extends BaseViewHolder> extends Ba
             itemView.setOnLongClickListener(baseViewHolder.mInOnClickListener);
         }
     }
-
 
     public void setOnItemClickListener(RecyclerViewOnItemClickListener onItemClickListener) {
         this.mOnItemClickListener = onItemClickListener;
