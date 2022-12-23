@@ -7,15 +7,9 @@ RevyclerView Simple Adapter
 ## Setup
 
 ```gradle
-allprojects {
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
-}
 
 dependencies {
-    implementation 'com.github.Caij:simpleadapter:1.0.0'
+    implementation 'io.github.caij:simpleadapter:1.0.1'
 }
 ```
 
