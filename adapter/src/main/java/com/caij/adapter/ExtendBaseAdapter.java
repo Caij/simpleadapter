@@ -65,7 +65,7 @@ public abstract class ExtendBaseAdapter<E, VH extends BaseViewHolder> extends Ba
     }
 
     public void onBindViewHolderInner(@NonNull VH holder, int position){
-        onBindViewHolderInner(holder, getItem(position), getItemViewType(position));
+        onBindViewHolderInner(holder, getItem(position), holder.getItemViewType());
     }
 
     protected View getView(ViewGroup viewGroup, int layoutId) {
